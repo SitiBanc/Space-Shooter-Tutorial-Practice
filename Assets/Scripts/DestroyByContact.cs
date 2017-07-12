@@ -29,14 +29,17 @@ public class DestroyByContact : MonoBehaviour {
     // When other Collider（bolt） enter（asteroid） destroy both the bolt and the asteroid
     void OnTriggerEnter(Collider other)
     {
+        // Ignore the collison with boundary
         if (other.CompareTag("Boundary")) {
             // return to Unity（end the execution this function）
             return;
         }
         // Add explosion effect
         Instantiate(explosion, transform.position, transform.rotation);
+        // Add explosion effect of player ship and execute the GameController.GameOver() function if （asteroid） collide to player ship
         if (other.CompareTag("Player")) {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gameController.GameOver();
         }
         // Add score
         gameController.AddScore(scoreValue);

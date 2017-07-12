@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     // Spawn hazard waves
@@ -13,13 +14,34 @@ public class GameController : MonoBehaviour {
     // Calculate the score and display it on the GUI
     public GUIText scoreText;
     private int score;
-
+    // After the game is over display gameOverText and restartText to notify player
+    public GUIText restartText;
+    public GUIText gameOverText;
+    private bool restart;   // Restart flag
+    private bool gameOver;  // Game over flag
+    
     void Start() {
         // Set starting score to zero and update the scoreText
         score = 0;
         UpdateScore();
         // Spawning hazard waves
         StartCoroutine(SpawnWaves());
+        // Set restartText and gameOverText to empty string so that they're invisible or 'turned off'
+        restartText.text = "";
+        gameOverText.text = "";
+        // Set restart and gameOver flags to false
+        restart = false;
+        gameOver = false;
+    }
+
+    void Update() {
+        // Restart the game
+        if (restart && Input.GetKeyDown(KeyCode.R)) {
+            /* This code is obsolete
+             * Application.LoadLevel(Application.loadedLevel);
+             */
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     IEnumerator SpawnWaves() {
@@ -37,6 +59,12 @@ public class GameController : MonoBehaviour {
             }
             // Pause before next wave
             yield return new WaitForSeconds(waveWait);
+            // If game over than break out the loop
+            if (gameOver) {
+                restartText.text = "Press 'R' to restart.";
+                restart = true;
+                break;
+            }
         }
     }
 
@@ -49,5 +77,11 @@ public class GameController : MonoBehaviour {
         // Add score and update scoreText
         score += scoreAdded;
         UpdateScore();
+    }
+
+    public void GameOver() {
+        // Display gameOverText and set gameOver flag to true
+        gameOverText.text = "Game Over!";
+        gameOver = true;
     }
 }
