@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     // Spawn hazard waves
-    public GameObject hazard;
+    public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount; // Number of hazards that will be spawned during each waves
     public float startWait; // Player preparation time after starting the game
@@ -49,6 +49,8 @@ public class GameController : MonoBehaviour {
         yield return new WaitForSeconds(startWait);
         while (true) {
             for (int i = 0; i < hazardCount; i++) {
+                // Randomly select the hazrd from hazards array
+                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
                 // Randomly select the spawnPosition.x（range from -spawnValues.x to spawnValues.x）
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 // No rotation

@@ -259,7 +259,7 @@ MonoBehaviour:
     zMax: 8
   shot: {fileID: 1501211786041802, guid: 2b28608e18d89a94fa066c9617f729d3, type: 2}
   shotSpawn: {fileID: 1544132000}
-  fireRate: 0.25
+  fireRate: 0.2
 --- !u!1 &357446180
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cfd28d9c3232543b6205865893230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazard: {fileID: 1229664698263640, guid: 44bd69849b5beeb47828ffc692018add, type: 2}
+  hazards:
+  - {fileID: 1229664698263640, guid: 44bd69849b5beeb47828ffc692018add, type: 2}
+  - {fileID: 1074067963693198, guid: 6e3ebf617bc34b540b5e53470f853947, type: 2}
+  - {fileID: 1208765263857016, guid: fa81a78c0fdad5d45bf38e1220e5acdd, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   startWait: 1
