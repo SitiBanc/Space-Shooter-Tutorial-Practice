@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
+    // Spawn hazard waves
     public GameObject hazard;
     public Vector3 spawnValues;
     public int hazardCount; // Number of hazards that will be spawned during each waves
     public float startWait; // Player preparation time after starting the game
     public float spawnWait; // Wait time between each hazards
     public float waveWait;  // Wait time between each waves
+    // Calculate the score and display it on the GUI
+    public GUIText scoreText;
+    private int score;
 
     void Start() {
+        // Set starting score to zero and update the scoreText
+        score = 0;
+        UpdateScore();
+        // Spawning hazard waves
         StartCoroutine(SpawnWaves());
     }
 
@@ -30,5 +38,16 @@ public class GameController : MonoBehaviour {
             // Pause before next wave
             yield return new WaitForSeconds(waveWait);
         }
+    }
+
+    public void UpdateScore() {
+        // Update scoreText
+        scoreText.text = "Score: " + score;
+    }
+
+    public void AddScore(int scoreAdded) {
+        // Add score and update scoreText
+        score += scoreAdded;
+        UpdateScore();
     }
 }
