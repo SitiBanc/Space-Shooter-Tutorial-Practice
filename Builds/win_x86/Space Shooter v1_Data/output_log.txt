@@ -15,20 +15,26 @@ Platform assembly: C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space S
 Loading C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space Shooter v1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space Shooter v1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space Shooter v1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.041 seconds
+- Completed reload, in  0.018 seconds
 Platform assembly: C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space Shooter v1_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\MD580\Documents\Space Shooter\Builds\win_x86\Space Shooter v1_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.498928 ms
+UnloadTime: 8.532372 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3388 -> priority: 1 
-  Thread -> id: 3f84 -> priority: 1 
+  Thread -> id: 4018 -> priority: 1 
+  Thread -> id: dc4 -> priority: 1 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.309253 ms
+UnloadTime: 0.678175 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 405.
-Total: 0.463558 ms (FindLiveObjects: 0.111959 ms CreateObjectMapping: 0.019248 ms MarkObjects: 0.321443 ms  DeleteObjects: 0.009624 ms)
+Total: 0.972351 ms (FindLiveObjects: 0.100090 ms CreateObjectMapping: 0.056140 ms MarkObjects: 0.770566 ms  DeleteObjects: 0.040741 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.755488 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 405.
+Total: 1.439438 ms (FindLiveObjects: 0.170666 ms CreateObjectMapping: 0.091107 ms MarkObjects: 1.147188 ms  DeleteObjects: 0.025984 ms)
 
