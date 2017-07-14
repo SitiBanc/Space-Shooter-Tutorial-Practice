@@ -11,19 +11,27 @@ public class GameController : MonoBehaviour {
     public float startWait; // Player preparation time after starting the game
     public float spawnWait; // Wait time between each hazards
     public float waveWait;  // Wait time between each waves
-    // Calculate the score and display it on the GUI
+    // Calculate the score, waveCount and display it on the GUI
     public GUIText scoreText;
     private int score;
+    private int waveCount;
     // After the game is over display gameOverText and restartText to notify player
     public GUIText restartText;
     public GUIText gameOverText;
+    // Display wave count
+    public GUIText waveCountText;
+    // Blink text wait time
+    public float blinkWait;
+    public float blinkRate;
+
     private bool restart;   // Restart flag
     private bool gameOver;  // Game over flag
     
     void Start() {
-        // Set starting score to zero and update the scoreText
-        score = 0;
-        UpdateScore();
+        // Set starting score, waveCount to zero and update tham
+        UpdateScore(score);
+        waveCount = 0;
+        UpdateWaveCount(waveCount);
         // Spawning hazard waves
         StartCoroutine(SpawnWaves());
         // Set restartText and gameOverText to empty string so that they're invisible or 'turned off'
@@ -36,8 +44,8 @@ public class GameController : MonoBehaviour {
 
     void Update() {
         // Restart the game
-        if (restart && Input.GetKeyDown(KeyCode.R)) {
-            /* This code is obsolete
+        if (gameOver && Input.GetKeyDown(KeyCode.R)) {
+            /* This code（below） is obsolete
              * Application.LoadLevel(Application.loadedLevel);
              */
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -48,6 +56,8 @@ public class GameController : MonoBehaviour {
         // Give player some time to prepare
         yield return new WaitForSeconds(startWait);
         while (true) {
+            // Update wave count
+            UpdateWaveCount(1);
             for (int i = 0; i < hazardCount; i++) {
                 // Randomly select the hazrd from hazards array
                 GameObject hazard = hazards[Random.Range(0, hazards.Length)];
@@ -63,27 +73,38 @@ public class GameController : MonoBehaviour {
             yield return new WaitForSeconds(waveWait);
             // If game over than break out the loop
             if (gameOver) {
-                restartText.text = "Press 'R' to restart.";
-                restart = true;
                 break;
             }
         }
     }
 
-    public void UpdateScore() {
-        // Update scoreText
+    IEnumerator BlinkText() {
+        yield return new WaitForSeconds(blinkWait);
+        while (restart) {
+            restartText.text = "Press 'R' to restart.";
+            yield return new WaitForSeconds(1 - blinkRate);
+            restartText.text = "";
+            yield return new WaitForSeconds(blinkRate);
+        }
+    }
+
+    public void UpdateScore(int scoreAdded) {
+        // Add score and update scoreText
+        score += scoreAdded;
         scoreText.text = "Score: " + score;
     }
 
-    public void AddScore(int scoreAdded) {
-        // Add score and update scoreText
-        score += scoreAdded;
-        UpdateScore();
+    public void UpdateWaveCount(int countAdded) {
+        // Add waveCount and update waveCount
+        waveCount += countAdded;
+        waveCountText.text = "WaveCount: " + waveCount;
     }
 
     public void GameOver() {
         // Display gameOverText and set gameOver flag to true
         gameOverText.text = "Game Over!";
         gameOver = true;
+        restart = true;
+        StartCoroutine(BlinkText());
     }
 }

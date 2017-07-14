@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // Call Fire() function after 'delay' at the rate of 'fireRate'
         InvokeRepeating("Fire", delay, fireRate);
 	}
 
