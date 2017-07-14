@@ -19,9 +19,9 @@ All the features in the [extending part](https://unity3d.com/learn/tutorials/pro
 Some extra features I added include :
 
 >* Smarter Enemy Ship (Now it will moves toward the player)
-* Blinking Restart Text
-* Wave Count Text
-* More to come...
+>* Blinking Restart Text
+>* Wave Count Text
+>* More to come...
 
 
 #### Reminder
