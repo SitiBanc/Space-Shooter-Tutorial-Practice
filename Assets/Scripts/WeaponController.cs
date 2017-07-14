@@ -13,11 +13,6 @@ public class WeaponController : MonoBehaviour {
 	void Start () {
         InvokeRepeating("Fire", delay, fireRate);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void Fire() {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
