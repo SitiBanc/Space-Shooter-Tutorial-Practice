@@ -10,9 +10,9 @@ All the features in the official tutorial
 All the features in the [extending part](https://unity3d.com/learn/tutorials/projects/space-shooter-tutorial/extending-space-shooter-enemies-more-hazards?playlist=17147) from the official tutorial include :
 
 >* Scrolling Background
-* Starfield Particle Effect
-* Random Hazards (3 Asteroids)
-* Enemy Ship
+>* Starfield Particle Effect
+>* Random Hazards (3 Asteroids)
+>* Enemy Ship
 
 #### Extra Features
 
