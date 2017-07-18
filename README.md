@@ -26,4 +26,4 @@ Some extra features I added include :
 
 #### Reminder
 
- I made some changes to the code in order to upgrade to my Unity version (5.2) and to my preferred coding style.
+ I made some changes to the code in order to upgrade to my Unity version (2017.1) and to my preferred coding style.
