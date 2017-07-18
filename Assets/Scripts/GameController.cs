@@ -11,15 +11,19 @@ public class GameController : MonoBehaviour {
     public float startWait; // Player preparation time after starting the game
     public float spawnWait; // Wait time between each hazards
     public float waveWait;  // Wait time between each waves
-    // Calculate the score, waveCount and display it on the GUI
+    // Calculate the score, waveCount and lifeCount then display them on the GUI
     public GUIText scoreText;
+    public GUIText waveCountText;
+    public GUIText lifeCountText;
+    public float respawnWait;
+    public int lifeCount;
     private int score;
     private int waveCount;
+    // Hold reference to player prefab for respawning purpose
+    public GameObject player;
     // After the game is over display gameOverText and restartText to notify player
     public GUIText restartText;
     public GUIText gameOverText;
-    // Display wave count
-    public GUIText waveCountText;
     // Blink text wait time
     public float blinkWait;
     public float blinkRate;
@@ -32,6 +36,7 @@ public class GameController : MonoBehaviour {
         UpdateScore(score);
         waveCount = 0;
         UpdateWaveCount(waveCount);
+        UpdateLifeCount();
         // Spawning hazard waves
         StartCoroutine(SpawnWaves());
         // Set restartText and gameOverText to empty string so that they're invisible or 'turned off'
@@ -97,10 +102,27 @@ public class GameController : MonoBehaviour {
     public void UpdateWaveCount(int countAdded) {
         // Add waveCount and update waveCount
         waveCount += countAdded;
-        waveCountText.text = "WaveCount: " + waveCount;
+        waveCountText.text = "Wave Count: " + waveCount;
+    }
+
+    public void UpdateLifeCount() {
+        // Update lifeCountText
+        lifeCountText.text = "Life Remain: " + lifeCount;
+    }
+
+    public void PlayerRespawn() {
+        // Some Respawn Code
+        Instantiate(player, Vector3.zero, Quaternion.identity);
     }
 
     public void GameOver() {
+        lifeCount -= 1;
+        UpdateLifeCount();
+        // Check if player has life remains
+        if (lifeCount > 0) {
+            Invoke("PlayerRespawn", respawnWait);
+            return;
+        }
         // Display gameOverText and set gameOver flag to true
         gameOverText.text = "Game Over!";
         gameOver = true;
