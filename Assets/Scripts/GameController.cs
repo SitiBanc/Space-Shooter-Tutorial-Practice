@@ -49,11 +49,17 @@ public class GameController : MonoBehaviour {
 
     void Update() {
         // Restart the game
-        if (gameOver && Input.GetKeyDown(KeyCode.R)) {
-            /* This code（below） is obsolete
-             * Application.LoadLevel(Application.loadedLevel);
-             */
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (gameOver) {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                Application.Quit();
+            }
+            if (Input.GetKeyDown(KeyCode.R)) {
+                 /* The code（below） is obsolete
+                 * Application.LoadLevel(Application.loadedLevel);
+                 */
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            
         }
     }
 
@@ -86,7 +92,7 @@ public class GameController : MonoBehaviour {
     IEnumerator BlinkText() {
         yield return new WaitForSeconds(blinkWait);
         while (restart) {
-            restartText.text = "Press 'R' to restart.";
+            restartText.text = "Press 'R' to restart or press 'esc' to quit.";
             yield return new WaitForSeconds(1 - blinkRate);
             restartText.text = "";
             yield return new WaitForSeconds(blinkRate);
