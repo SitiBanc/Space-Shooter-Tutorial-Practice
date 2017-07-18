@@ -21,6 +21,8 @@ Some extra features I added include :
 >* Smarter Enemy Ship (Now it will moves toward the player)
 >* Blinking Restart Text
 >* Wave Count Text
+>* Life System (Extra chances)
+>* Respawn Protection (with blinking effect)
 >* More to come...
 
 
