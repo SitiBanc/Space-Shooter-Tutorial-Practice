@@ -111,8 +111,9 @@ public class GameController : MonoBehaviour {
     }
 
     public void PlayerRespawn() {
-        // Some Respawn Code
+        // Some Respawn Code (instantiate player and set it to isProtected)
         Instantiate(player, Vector3.zero, Quaternion.identity);
+        player.GetComponent<PlayerController>().isProtected = true;
     }
 
     public void GameOver() {

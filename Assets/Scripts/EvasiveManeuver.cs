@@ -31,13 +31,13 @@ public class EvasiveManeuver : MonoBehaviour {
         yield return new WaitForSeconds(Random.Range(startWait.x, startWait.y));
         // Keep maneuvering after a random amount of time
         while (true) {
-            // Maneuver toward the player ship
             /* 
              * Randomly select a targetManeuver
              * Using -Mathf.Sign(transform.position.x) to avoid enemy ship from moving toward the edge of our game area
              * But by doing so, the ship will always moves toward the center of our game area
              * targetManeuver = Random.Range(1, dodge) * -Mathf.Sign(transform.position.x);
              */
+            // Maneuver toward the player ship
             // Check if playerTransform is null（destroyed）
             if (playerTransform == null) {
                 // Set targetManeuver to enemy ship's position（don't move） and break out the loop

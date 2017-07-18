@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4251784984084138}
   m_Layer: 0
   m_Name: engines_player
-  m_TagString: Untagged
+  m_TagString: PlayerEngine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,7 +254,10 @@ MonoBehaviour:
     zMax: 8
   shot: {fileID: 1501211786041802, guid: 2b28608e18d89a94fa066c9617f729d3, type: 2}
   shotSpawn: {fileID: 4186120028882638}
-  fireRate: 0.2
+  fireRate: 0.25
+  protectionTime: 2.5
+  blinkRate: 0.25
+  isProtected: 0
 --- !u!198 &198802282522959074
 ParticleSystem:
   m_ObjectHideFlags: 1

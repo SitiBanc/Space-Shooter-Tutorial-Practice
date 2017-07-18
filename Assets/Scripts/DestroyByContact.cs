@@ -21,9 +21,8 @@ public class DestroyByContact : MonoBehaviour {
         if (gameControllerObject != null) {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
-
         // Just in case something goes wrong and we can't find the gameController
-        if (gameControllerObject == null) {
+        else {
             Debug.Log("Cannot find 'GameController' script.");
         }
     }
