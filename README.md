@@ -28,4 +28,5 @@ Some extra features I added include :
 
 #### Reminder
 
- I made some changes to the code in order to upgrade to my Unity version (2017.1) and to my preferred coding style.
+I made some changes to the code in order to upgrade to my Unity version (2017.1.0f3) and to my preferred coding style.
+You can find the final files of official tutorial under [Assets/-Complete-Games](https://github.com/SitiBanc/Space-Shooter-Tutorial-Practice/tree/master/Assets/_Complete-Game) directory of this repo or download them from [asset store](https://www.assetstore.unity3d.com/en/#!/content/13866) (these files come with the tutorial's package).
